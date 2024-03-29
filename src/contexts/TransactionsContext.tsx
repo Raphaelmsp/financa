@@ -25,7 +25,7 @@ export const TransactionsContext = createContext({} as TransactionContextType);
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  async function fetchTransactions() {
+  async function fetchTransactions(query?: string) {
     const response = await fetch('http://localhost:3333/transactions')
     const data = await response.json();
 
