@@ -73,10 +73,9 @@ export function NewTransactionModal() {
         <Controller 
           control={control}
           name="type"
-          render={(props) => {
-            console.log(props);
+          render={({field}) => {
             return (
-              <TransactionType>
+              <TransactionType onValueChange={field.onChange}>
               <TransactionTypeButton variant="income" value="income">
                 <ArrowCircleUp size={24} />
                 Entrada
