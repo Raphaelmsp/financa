@@ -2,7 +2,6 @@ import { createContext, ReactNode, useEffect, useState } from 'react';
 import { api } from '../lib/axios';
 
 interface Transaction {
-  [x: string]: ReactNode;
   id: number;
   description: string;
   cliente: string;
@@ -27,7 +26,7 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
   async function fetchTransactions(query?: string) {
-    const response = await api.get('/transactions', {
+    const response = await api.get('transactions', {
       params: {
         q: query,
       }
